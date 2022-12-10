@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const primary = Color.fromRGBO(127, 156, 198, 1);
+  static const seed = Color.fromRGBO(24, 96, 165, 1);
+  static const primary = Color.fromRGBO(24, 96, 165, 1);
   static const surface = Color.fromRGBO(237, 240, 243, 1);
   static const onPrimary = white;
   static const onSurface = black;
@@ -9,22 +10,23 @@ class AppColors {
   static const background = Color.fromRGBO(248, 248, 248, 1);
   static const shadow = Colors.black87;
 
-  static const black = Color(0xFF3E4249);
+  static const black = Color.fromRGBO(62, 66, 73, 1);
   static const white = Color.fromRGBO(248, 248, 248, 1);
 
-  static const successGreen = Color(0xFF26ae60);
-  static const errorRed = Color(0xFFeb5757);
+  static const successGreen = Color.fromRGBO(38, 174, 96, 1);
+  static const errorRed = Color.fromRGBO(235, 87, 87, 1);
 
   static ColorScheme? _scheme;
-  static get scheme {
+  static ColorScheme get scheme {
     _scheme ??= ColorScheme.fromSeed(
-      seedColor: primary,
+      seedColor: seed,
+      primary: primary,
       background: background,
       brightness: Brightness.light,
       error: errorRed,
       surface: surface,
     );
 
-    return _scheme;
+    return _scheme!;
   }
 }

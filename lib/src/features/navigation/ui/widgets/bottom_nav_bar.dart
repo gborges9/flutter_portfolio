@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/features/app/theme/color.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar(
@@ -14,9 +15,13 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      showUnselectedLabels: true,
+      type: BottomNavigationBarType.fixed,
       currentIndex: selectedIndex,
       onTap: onTabSelected,
       items: items,
+      unselectedItemColor: AppColors.scheme.onSurface,
+      selectedItemColor: AppColors.primary,
     );
   }
 }
