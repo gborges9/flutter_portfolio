@@ -31,8 +31,8 @@ jobs:
           git config --global user.email gborges9@outlook.com
           git config --global user.name auto_deploy
           git status
-          git remote add origin https://${{secrets.DEPLOY_TOKEN}}@github.com/gborges9/gborges9.github.io.git
+          git remote add origin https://${{secrets.GH_TOKEN}}@github.com/gborges9/gborges9.github.io.git
           git checkout -b main
-          git add --all
+          git add . --all
           git commit -m "update"
           git push origin main -f
