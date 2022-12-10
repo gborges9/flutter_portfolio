@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/features/app/theme/elevation.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 
 class SideNavBar extends StatelessWidget {
   const SideNavBar({
     super.key,
     this.header,
+    this.trailing,
     required this.destinations,
     required this.selectedIndex,
     this.onDestinationSelected,
   });
 
-  final Widget? header;
+  final Widget? header, trailing;
   final List<NavigationRailDestination> destinations;
   final void Function(int index)? onDestinationSelected;
   final int selectedIndex;
@@ -18,6 +20,7 @@ class SideNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: AppElevation.elevation2,
       margin: EdgeInsets.all(AppPadding.appBorder),
       child: Column(
         children: [
@@ -31,6 +34,7 @@ class SideNavBar extends StatelessWidget {
               onDestinationSelected: onDestinationSelected,
             ),
           ),
+          if (trailing != null) trailing!,
         ],
       ),
     );
