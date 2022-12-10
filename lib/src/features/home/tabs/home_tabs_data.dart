@@ -3,7 +3,7 @@ import 'package:flutter_portfolio/src/infrastructure/navigation/nav_route_data.d
 import 'package:flutter_portfolio/src/infrastructure/localization/strings.dart';
 import 'package:heroicons/heroicons.dart';
 
-final homeTabs = [
+final homeTabsData = [
   NavRouteData.builder(
     labelBuilder: (context) => Strings.of(context).tabHome,
     iconBuilder: (context) => const HeroIcon(HeroIcons.home),
