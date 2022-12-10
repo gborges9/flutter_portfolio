@@ -1,9 +1,7 @@
 import 'package:adaptive_breakpoints/adaptive_breakpoints.dart';
-import 'package:auto_route/auto_route.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/src/features/navigation/routes/nav_route_data.dart';
-import 'package:flutter_portfolio/src/features/navigation/routes/nav_routes.dart';
+import 'package:flutter_portfolio/src/infrastructure/navigation/nav_route_data.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/bottom_nav_bar.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/side_nav_bar.dart';
 

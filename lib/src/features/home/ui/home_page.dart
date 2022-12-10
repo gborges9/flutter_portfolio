@@ -1,24 +1,34 @@
+import 'package:animations/animations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/src/features/navigation/routes/nav_routes.dart';
+import 'package:flutter_portfolio/src/features/home/tabs/home_tabs.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/responsive_navigation.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int currentPage = 0;
+
+  @override
   Widget build(BuildContext context) {
-    return AutoTabsRouter.tabBar(
-      routes: getRoutes(),
-      builder: (context, child, tabController) => ResponsiveNavigation(
-        body: child,
-        routes: navRoutes,
-        selectedIndex: 0,
+    return ResponsiveNavigation(
+      selectedIndex: currentPage,
+      routes: homeTabs,
+      onRouteSelected: (index, data) => setState(() => currentPage = index),
+      body: PageTransitionSwitcher(
+        transitionBuilder: (child, primaryAnimation, secondaryAnimation) =>
+            FadeThroughTransition(
+          animation: primaryAnimation,
+          secondaryAnimation: secondaryAnimation,
+          child: child,
+        ),
+        child: homeTabs[currentPage].builder!(context),
       ),
     );
-  }
-
-  static List<PageRouteInfo> getRoutes() {
-    return navRoutes.map((e) => e.route).toList();
   }
 }

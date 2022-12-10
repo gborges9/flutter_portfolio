@@ -6,16 +6,28 @@ class NavRouteData {
   final WidgetBuilder _iconBuilder;
   final WidgetBuilder _activeIconBuilder;
 
-  final PageRouteInfo route;
+  final PageRouteInfo? route;
+  final WidgetBuilder? builder;
 
-  const NavRouteData({
+  const NavRouteData.route({
     required String Function(BuildContext context) labelBuilder,
     required WidgetBuilder iconBuilder,
     WidgetBuilder? activeIconBuilder,
     required this.route,
   })  : _iconBuilder = iconBuilder,
         _activeIconBuilder = activeIconBuilder ?? iconBuilder,
-        _labelBuilder = labelBuilder;
+        _labelBuilder = labelBuilder,
+        builder = null;
+
+  const NavRouteData.builder({
+    required String Function(BuildContext context) labelBuilder,
+    required WidgetBuilder iconBuilder,
+    WidgetBuilder? activeIconBuilder,
+    required this.builder,
+  })  : _iconBuilder = iconBuilder,
+        _activeIconBuilder = activeIconBuilder ?? iconBuilder,
+        _labelBuilder = labelBuilder,
+        route = null;
 
   String getLabel(BuildContext context) => _labelBuilder(context);
 
