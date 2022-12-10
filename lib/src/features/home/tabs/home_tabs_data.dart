@@ -31,4 +31,13 @@ final homeTabsData = [
     ),
     builder: (context) => Center(child: Text("3")),
   ),
+  NavRouteData.builder(
+    labelBuilder: (context) => Strings.of(context).tabContact,
+    iconBuilder: (context) => const HeroIcon(HeroIcons.phone),
+    activeIconBuilder: (context) => const HeroIcon(
+      HeroIcons.phone,
+      style: HeroIconStyle.solid,
+    ),
+    builder: (context) => Center(child: Text("4")),
+  ),
 ];

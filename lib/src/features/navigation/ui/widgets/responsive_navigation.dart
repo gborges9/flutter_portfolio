@@ -12,6 +12,7 @@ class ResponsiveNavigation extends StatelessWidget {
     required this.selectedIndex,
     this.onRouteSelected,
     required this.routes,
+    this.sidebarHeader,
   });
 
   final void Function(int index, NavRouteData data)? onRouteSelected;
@@ -19,7 +20,7 @@ class ResponsiveNavigation extends StatelessWidget {
 
   final List<NavRouteData> routes;
 
-  final Widget? body;
+  final Widget? body, sidebarHeader;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +42,7 @@ class ResponsiveNavigation extends StatelessWidget {
                   height: double.infinity,
                   width: 350,
                   child: SideNavBar(
+                    header: sidebarHeader,
                     selectedIndex: selectedIndex,
                     onDestinationSelected: (index) =>
                         onRouteSelected?.call(index, routes[index]),

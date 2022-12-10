@@ -20,12 +20,17 @@
   "contactButton": "Contato",
 
   "linkedinUrl": "https://www.linkedin.com/in/gb03/?locale=pt_BR",
-  "githubUrl": "https://github.com/GB0307",
+  "githubUrl": "https://github.com/gborges9",
   "mediumUrl": "https://medium.com/@ga.borges",
   "instagramUrl": "https://www.instagram.com/gabrielb03/",
   "cvUrl": "https://drive.google.com/file/d/1Seo9K-wOiuOvSnKHM716yOkYTXOKDFVL/view",
 
   "hardSkills": "Hard skills",
-  "softSkills": "Soft skills"
+  "softSkills": "Soft skills",
+
+  "github": "Github",
+  "linkedin": "LinkedIn",
+  "medium": "Medium",
+  "instagram": "Instagram"
 }
   

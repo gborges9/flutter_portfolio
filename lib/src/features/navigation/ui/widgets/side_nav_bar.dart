@@ -19,13 +19,19 @@ class SideNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.all(AppPadding.appBorder),
-      child: NavigationRail(
-        backgroundColor: Colors.transparent,
-        selectedIndex: selectedIndex,
-        extended: true,
-        leading: header,
-        destinations: destinations,
-        onDestinationSelected: onDestinationSelected,
+      child: Column(
+        children: [
+          if (header != null) header!,
+          Expanded(
+            child: NavigationRail(
+              backgroundColor: Colors.transparent,
+              selectedIndex: selectedIndex,
+              extended: true,
+              destinations: destinations,
+              onDestinationSelected: onDestinationSelected,
+            ),
+          ),
+        ],
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:animations/animations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/features/about_me/ui/widgets/simple_profile.dart';
 import 'package:flutter_portfolio/src/features/home/tabs/home_tabs_data.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/responsive_navigation.dart';
 
@@ -20,6 +21,7 @@ class _HomePageState extends State<HomePage> {
       selectedIndex: currentPage,
       routes: homeTabsData,
       onRouteSelected: (index, data) => setState(() => currentPage = index),
+      sidebarHeader: const SimpleProfile(),
       body: PageTransitionSwitcher(
         transitionBuilder: (child, primaryAnimation, secondaryAnimation) =>
             FadeThroughTransition(
