@@ -7,15 +7,20 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// The Widget that configures your application.
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.dependencies});
+  const MyApp(
+      {super.key,
+      required this.dependencies,
+      this.useInheritedMediaQuery = false});
 
   final Dependencies dependencies;
+  final bool useInheritedMediaQuery;
 
   @override
   Widget build(BuildContext context) {
     return BlocDependencyProvider(
       dependencies: [dependencies],
       builder: (context, hasLoaded) => MaterialApp.router(
+        useInheritedMediaQuery: useInheritedMediaQuery,
         localizationsDelegates: const [
           AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,

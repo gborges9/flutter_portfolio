@@ -1,3 +1,5 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/dependency_container.dart';
 import 'package:flutter_portfolio/src/features/app/app.dart';
@@ -6,8 +8,12 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(
-    MyApp(
-      dependencies: DependencyContainer(),
+    DevicePreview(
+      enabled: kDebugMode,
+      builder: (context) => MyApp(
+        useInheritedMediaQuery: kDebugMode,
+        dependencies: DependencyContainer(),
+      ),
     ),
   );
 }
