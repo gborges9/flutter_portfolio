@@ -9,9 +9,9 @@ void main() {
 
   runApp(
     DevicePreview(
-      enabled: kDebugMode,
+      enabled: false,
       builder: (context) => MyApp(
-        useInheritedMediaQuery: kDebugMode,
+        useInheritedMediaQuery: false,
         dependencies: DependencyContainer(),
       ),
     ),
