@@ -1,0 +1,27 @@
+{
+  "appTitle": "Portfolio",
+
+  "name": "Gabriel Borges",
+  "jobTitle": "Android Platform & Mobile Developer", 
+  "about": "I am Mechatronics Engineering and Computer Science student with background in aerodesign, machine learning, data simulation and application development. \nI always like to learn new things, test hypotheses, develop new software or improve existing ones, my hobbies are playing the guitar, playing tennis, watching TV shows and sometimes playing (or creating) electronic games.",
+
+  "tabAboutMe": "About me",
+  "tabExperience": "Career",
+  "tabProjects": "Projects",
+  "tabContact": "Contact me",
+  "tabSkills": "Skills",
+  "tabEducation": "Education",
+
+  "downloadCV": "Download CV",
+  "contactButton": "Contact",
+
+  "linkedinUrl": "https://www.linkedin.com/in/gb03/?locale=en_US",
+  "githubUrl": "https://github.com/GB0307",
+  "mediumUrl": "https://medium.com/@ga.borges",
+  "instagramUrl": "https://www.instagram.com/gabrielb03/",
+  "cvUrl": "https://drive.google.com/file/d/1Seo9K-wOiuOvSnKHM716yOkYTXOKDFVL/view",
+
+  "hardSkills": "Hard skills",
+  "softSkills": "Soft skills"
+}
+  

@@ -1,0 +1,30 @@
+{
+  "appTitle": "Portfolio",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+
+  "name": "Gabriel Borges",
+  "jobTitle": "Android Platform & Mobile Developer", 
+  "about": "Graduando em Engenharia Mecatrônica e ciências da computação com experiência em aerodesign, machine learning, simulação de dados e desenvolvimento de aplicativos.\nGosto sempre de aprender novas coisas, testar hipóteses, desenvolver novos softwares ou melhorar os que já existem, tenho como hobbies tocar violão, jogar tênis, assistir series e às vezes jogar (ou criar) jogos eletrônicos.",
+
+  "tabAboutMe": "Sobre mim",
+  "tabExperience": "Experiência",
+  "tabProjects": "Projetos",
+  "tabContact": "Contato",
+  "tabSkills": "Habilidades",
+  "tabEducation": "Formacão",
+
+  "downloadCV": "Baixar currículo",
+  "contactButton": "Contato",
+
+  "linkedinUrl": "https://www.linkedin.com/in/gb03/?locale=pt_BR",
+  "githubUrl": "https://github.com/GB0307",
+  "mediumUrl": "https://medium.com/@ga.borges",
+  "instagramUrl": "https://www.instagram.com/gabrielb03/",
+  "cvUrl": "https://drive.google.com/file/d/1Seo9K-wOiuOvSnKHM716yOkYTXOKDFVL/view",
+
+  "hardSkills": "Hard skills",
+  "softSkills": "Soft skills"
+}
+  

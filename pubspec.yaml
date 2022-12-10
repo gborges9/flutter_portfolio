@@ -1,0 +1,77 @@
+name: flutter_portfolio
+description: A new Flutter project.
+
+# Prevent accidental publishing to pub.dev.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  auto_route: ^5.0.3
+  equatable: ^2.0.5
+  freezed_annotation: ^2.1.0
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  json_annotation: ^4.6.0
+  google_fonts: ^3.0.1
+
+  gbx_di:
+    git:
+      url: https://github.com/GB0307/flutter_gbx
+      path: gbx_di/
+  gbx_core:
+    git:
+      url: https://github.com/GB0307/flutter_gbx
+      path: gbx_core/
+  gbx_bloc:
+    git:
+      url: https://github.com/GB0307/flutter_gbx
+      path: gbx_bloc/
+
+  animations: ^2.0.7
+  heroicons: ^0.7.0
+  font_awesome_flutter: ^10.2.1
+  url_launcher: ^6.1.7
+
+dev_dependencies:
+  auto_route_generator: ^5.0.3          
+  build_runner:  
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.10.0"
+
+  flutter_lints: ^2.0.0
+  freezed: ^2.1.0+1
+  json_serializable:
+
+flutter:
+  generate: true
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+flutter_native_splash:  
+  color: "#f7f7f7"
+  image: "assets/images/splash_logo.png"
+  android_12:
+    color: "#f7f7f7"
+    image: "assets/images/splash_logo.png"
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/icon/icon.png"
+  adaptive_icon_background: #f7f7f7
+  min_sdk_android: 21
+  web:
+    generate: false
+  windows:
+    generate: false
