@@ -12,6 +12,8 @@ class HomePage extends StatelessWidget {
       routes: getRoutes(),
       builder: (context, child, tabController) => ResponsiveNavigation(
         body: child,
+        routes: navRoutes,
+        selectedIndex: 0,
       ),
     );
   }

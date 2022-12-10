@@ -5,18 +5,30 @@ import 'package:heroicons/heroicons.dart';
 
 final navRoutes = [
   NavRouteData(
-    title: (context) => Strings.of(context).tabHome,
-    icon: (context) => const HeroIcon(HeroIcons.home),
+    labelBuilder: (context) => Strings.of(context).tabHome,
+    iconBuilder: (context) => const HeroIcon(HeroIcons.home),
+    activeIconBuilder: (context) => const HeroIcon(
+      HeroIcons.home,
+      style: HeroIconStyle.solid,
+    ),
     route: const AboutMeRoute(),
   ),
   NavRouteData(
-    title: (context) => Strings.of(context).tabSkills,
-    icon: (context) => const HeroIcon(HeroIcons.bookOpen),
+    labelBuilder: (context) => Strings.of(context).tabSkills,
+    iconBuilder: (context) => const HeroIcon(HeroIcons.bookOpen),
+    activeIconBuilder: (context) => const HeroIcon(
+      HeroIcons.bookOpen,
+      style: HeroIconStyle.solid,
+    ),
     route: const AboutMeRoute(),
   ),
   NavRouteData(
-    title: (context) => Strings.of(context).tabExperience,
-    icon: (context) => const HeroIcon(HeroIcons.briefcase),
+    labelBuilder: (context) => Strings.of(context).tabExperience,
+    iconBuilder: (context) => const HeroIcon(HeroIcons.briefcase),
+    activeIconBuilder: (context) => const HeroIcon(
+      HeroIcons.briefcase,
+      style: HeroIconStyle.solid,
+    ),
     route: const AboutMeRoute(),
   ),
 ];

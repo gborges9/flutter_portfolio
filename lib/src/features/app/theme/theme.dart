@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/features/app/theme/borders.dart';
 import 'package:flutter_portfolio/src/features/app/theme/color.dart';
 import './text_theme.dart';
 
@@ -10,6 +11,11 @@ ThemeData get appTheme {
     backgroundColor: AppColors.background,
     canvasColor: AppColors.background,
     colorScheme: AppColors.scheme,
+    cardTheme: CardTheme(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppBorders.navBorder),
+      ),
+    ),
   );
   return _cachedTheme!;
 }
