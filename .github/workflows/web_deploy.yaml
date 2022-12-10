@@ -32,7 +32,7 @@ jobs:
           git config --global user.name auto_deploy
           git status
           git remote add origin https://${{secrets.DEPLOY_TOKEN}}@github.com/gborges9/gborges9.github.io.git
-          git checkout -b gh-pages
+          git checkout -b main
           git add --all
           git commit -m "update"
-          git push origin gh-pages -f
+          git push origin main -f
