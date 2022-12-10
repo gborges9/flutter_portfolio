@@ -9,5 +9,5 @@ class AppPadding {
   static double get triplePadding => 12.0.dp;
   static double get quadPadding => 16.0.dp;
 
-  static double get appPadding => 16.0.dp;
+  static double get appBorder => 16.0.dp;
 }
