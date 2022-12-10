@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         ],
         onGenerateTitle: (BuildContext context) =>
             AppLocalizations.of(context)!.appTitle,
-        theme: theme,
+        theme: appTheme,
         themeMode: ThemeMode.light,
         routerDelegate: Injector.get<AppRouter>().delegate(),
         routeInformationParser: Injector.get<AppRouter>().defaultRouteParser(),

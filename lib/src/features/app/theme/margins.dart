@@ -1,9 +1,13 @@
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-final halfPadding = 2.0.dp;
-final padding = 4.0.dp;
-final doublePadding = 8.0.dp;
-final triplePadding = 12.0.dp;
-final quadPadding = 16.0.dp;
+class AppPadding {
+  const AppPadding._();
 
-final appPadding = 16.0.dp;
+  static double get halfPadding => 2.0.dp;
+  static double get padding => 4.0.dp;
+  static double get doublePadding => 8.0.dp;
+  static double get triplePadding => 12.0.dp;
+  static double get quadPadding => 16.0.dp;
+
+  static double get appPadding => 16.0.dp;
+}
