@@ -20,8 +20,13 @@ class SideNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: AppElevation.elevation2,
-      margin: EdgeInsets.all(AppPadding.appBorder),
+      elevation: AppElevation.elevation3,
+      margin: EdgeInsets.only(
+        top: AppPadding.appBorder,
+        bottom: AppPadding.appBorder,
+        left: AppPadding.appBorder,
+        right: AppPadding.appBorder / 2,
+      ),
       child: Column(
         children: [
           if (header != null) header!,
