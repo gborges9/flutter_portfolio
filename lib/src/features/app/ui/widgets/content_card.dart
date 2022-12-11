@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
+import 'package:flutter_portfolio/src/features/app/ui/widgets/header_title.dart';
 import 'package:gbx_core/gbx_core.dart';
 
 class ContentCard extends StatelessWidget {
@@ -50,20 +51,8 @@ class ContentCard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (header != null)
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: AppPadding.appBorder / 2 + AppPadding.doublePadding,
-            ).copyWith(top: AppPadding.appBorder / 2),
-            child: DefaultTextStyle(
-              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                    color: Theme.of(context).colorScheme.onBackground,
-                    fontWeight: FontWeight.bold,
-                  ),
-              child: header!,
-            ),
-          ),
-        child
+        if (header != null) HeaderTitle(title: header!),
+        child,
       ],
     );
   }
