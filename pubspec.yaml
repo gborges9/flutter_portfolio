@@ -42,6 +42,7 @@ dependencies:
   url_launcher: ^6.1.7
   device_preview: ^1.1.0
   adaptive_breakpoints: ^0.1.4
+  scrollable_positioned_list: ^0.3.5
 
 dev_dependencies:
   auto_route_generator: ^5.0.3          

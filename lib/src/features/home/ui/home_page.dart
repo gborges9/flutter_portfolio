@@ -1,14 +1,9 @@
-import 'package:animations/animations.dart';
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/about_me/ui/widgets/simple_profile.dart';
-import 'package:flutter_portfolio/src/features/about_me/ui/widgets/social_media_buttons.dart';
-import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 import 'package:flutter_portfolio/src/features/home/tabs/home_tabs_data.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/responsive_navigation.dart';
-import 'package:flutter_portfolio/src/infrastructure/localization/strings.dart';
-import 'package:gbx_core/gbx_core.dart';
-import 'package:heroicons/heroicons.dart';
+import 'package:flutter_portfolio/src/infrastructure/navigation/nav_route_data.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,23 +14,59 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
+  final ItemScrollController itemScrollController = ItemScrollController();
+  final ItemPositionsListener itemPositionsListener =
+      ItemPositionsListener.create();
+
+  @override
+  void initState() {
+    super.initState();
+    itemPositionsListener.itemPositions.addListener(_onItemPositionChange);
+  }
+
+  @override
+  void dispose() {
+    itemPositionsListener.itemPositions.removeListener(_onItemPositionChange);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveNavigation(
       selectedIndex: currentPage,
       routes: homeTabsData,
-      onRouteSelected: (index, data) => setState(() => currentPage = index),
+      onRouteSelected: _onRouteSelected,
       sidebarHeader: const SimpleProfile(),
-      body: PageTransitionSwitcher(
-        transitionBuilder: (child, primaryAnimation, secondaryAnimation) =>
-            FadeThroughTransition(
-          animation: primaryAnimation,
-          secondaryAnimation: secondaryAnimation,
-          child: child,
-        ),
-        child: homeTabsData[currentPage].builder!(context),
+      body: ScrollablePositionedList.builder(
+        shrinkWrap: true,
+        itemCount: homeTabsData.length,
+        itemBuilder: (context, index) =>
+            homeTabsData[index].builder!.call(context),
+        itemScrollController: itemScrollController,
+        itemPositionsListener: itemPositionsListener,
       ),
     );
+  }
+
+  void _onRouteSelected(int index, NavRouteData data) {
+    setState(() {
+      itemScrollController.scrollTo(
+        index: index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOutCubic,
+      );
+      setState(() => currentPage = index);
+    });
+  }
+
+  void _onItemPositionChange() {
+    if (!mounted ||
+        currentPage == itemPositionsListener.itemPositions.value.first.index) {
+      return;
+    }
+
+    setState(() {
+      currentPage = itemPositionsListener.itemPositions.value.first.index;
+    });
   }
 }

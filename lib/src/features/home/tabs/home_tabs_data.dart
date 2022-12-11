@@ -22,7 +22,8 @@ final homeTabsData = [
       HeroIcons.bookOpen,
       style: HeroIconStyle.solid,
     ),
-    builder: (context) => Center(child: Text("2")),
+    builder: (context) =>
+        Container(width: double.infinity, color: Colors.red, height: 500),
   ),
   NavRouteData.builder(
     labelBuilder: (context) => Strings.of(context).tabExperience,
@@ -31,7 +32,8 @@ final homeTabsData = [
       HeroIcons.briefcase,
       style: HeroIconStyle.solid,
     ),
-    builder: (context) => Center(child: Text("3")),
+    builder: (context) =>
+        Container(width: double.infinity, color: Colors.blue, height: 500),
   ),
   NavRouteData.builder(
     labelBuilder: (context) => Strings.of(context).tabContact,
@@ -40,6 +42,7 @@ final homeTabsData = [
       HeroIcons.phone,
       style: HeroIconStyle.solid,
     ),
-    builder: (context) => Center(child: Text("4")),
+    builder: (context) =>
+        Container(width: double.infinity, color: Colors.teal, height: 500),
   ),
 ];
