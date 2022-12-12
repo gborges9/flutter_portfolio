@@ -9,9 +9,14 @@ class AboutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var image = "assets/images/image_1.jpeg";
     return ContentCard(
+      leading: Image.asset(
+        image,
+        height: 300,
+      ),
       elevation: elevation,
-      header: Text(Strings.of(context).tabAboutMe),
+      title: Text(Strings.of(context).tabAboutMe),
       content: Text(Strings.of(context).about),
     );
   }
