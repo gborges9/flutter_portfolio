@@ -42,7 +42,7 @@ class SocialMediaButtons extends StatelessWidget {
           splashRadius: 24,
           tooltip: Strings.of(context).instagram,
         ),
-      ].addInBetween(AppPadding.quadPadding.pw),
+      ].addInBetween(AppMargins.quadPadding.pw),
     );
   }
 

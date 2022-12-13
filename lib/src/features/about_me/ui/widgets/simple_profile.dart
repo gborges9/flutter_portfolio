@@ -15,7 +15,7 @@ class SimpleProfile extends StatelessWidget {
     return Column(
       children: [
         _images(context),
-        AppPadding.padding.ph,
+        AppMargins.padding.ph,
         Text(
           Strings.of(context).name,
           style: Theme.of(context).textTheme.headlineSmall,
@@ -24,14 +24,14 @@ class SimpleProfile extends StatelessWidget {
           Strings.of(context).jobTitle,
           style: Theme.of(context).textTheme.bodySmall,
         ),
-        AppPadding.doublePadding.ph,
+        AppMargins.doublePadding.ph,
         const SocialMediaButtons(),
-        AppPadding.padding.ph,
+        AppMargins.padding.ph,
         const DownloadCvButton(),
-        AppPadding.triplePadding.ph,
+        AppMargins.triplePadding.ph,
         Divider(
-          endIndent: AppPadding.appBorder,
-          indent: AppPadding.appBorder,
+          endIndent: AppMargins.appBorder,
+          indent: AppMargins.appBorder,
           height: 0,
         ),
       ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/app/theme/borders.dart';
 import 'package:flutter_portfolio/src/features/app/theme/color.dart';
+import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 import './text_theme.dart';
 
 ThemeData? _cachedTheme;
@@ -15,6 +16,7 @@ ThemeData get appTheme {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(AppBorders.navBorder),
       ),
+      margin: AppMargins.card,
     ),
   );
   return _cachedTheme!;

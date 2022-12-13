@@ -23,8 +23,8 @@ class ContentCard extends StatelessWidget {
     Widget child = Card(
       elevation: elevation,
       margin: EdgeInsets.symmetric(
-        horizontal: AppPadding.appBorder / 2,
-        vertical: AppPadding.padding,
+        horizontal: AppMargins.appBorder / 2,
+        vertical: AppMargins.padding,
       ),
       child: buildCardContent(context),
     );
@@ -45,8 +45,8 @@ class ContentCard extends StatelessWidget {
   Widget buildCardContent(BuildContext context) {
     final child = Padding(
       padding: EdgeInsets.symmetric(
-        vertical: AppPadding.quadPadding,
-        horizontal: AppPadding.quadPadding,
+        vertical: AppMargins.quadPadding,
+        horizontal: AppMargins.quadPadding,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +59,7 @@ class ContentCard extends StatelessWidget {
                   ),
               child: title!,
             ),
-          if (title != null && content != null) AppPadding.triplePadding.ph,
+          if (title != null && content != null) AppMargins.triplePadding.ph,
           DefaultTextStyle(
             style: Theme.of(context).textTheme.bodyLarge!,
             child: SizedBox(

@@ -8,8 +8,8 @@ class HeaderTitle extends StatelessWidget {
   final EdgeInsets? margin;
 
   static EdgeInsets get defaultMargin => EdgeInsets.symmetric(
-        horizontal: AppPadding.quadPadding,
-      ).copyWith(top: AppPadding.quadPadding);
+        horizontal: AppMargins.quadPadding,
+      ).copyWith(top: AppMargins.quadPadding);
 
   @override
   Widget build(BuildContext context) {

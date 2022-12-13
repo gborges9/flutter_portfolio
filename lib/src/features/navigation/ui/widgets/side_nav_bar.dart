@@ -22,10 +22,10 @@ class SideNavBar extends StatelessWidget {
     return Card(
       elevation: AppElevation.elevation3,
       margin: EdgeInsets.only(
-        top: AppPadding.appBorder,
-        bottom: AppPadding.appBorder,
-        left: AppPadding.appBorder,
-        right: AppPadding.appBorder / 2,
+        top: AppMargins.appBorder,
+        bottom: AppMargins.appBorder,
+        left: AppMargins.appBorder,
+        right: AppMargins.appBorder / 2,
       ),
       child: Column(
         children: [
