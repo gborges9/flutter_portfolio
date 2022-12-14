@@ -22,10 +22,6 @@ class ContentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget child = Card(
       elevation: elevation,
-      margin: EdgeInsets.symmetric(
-        horizontal: AppMargins.appBorder / 2,
-        vertical: AppMargins.padding,
-      ),
       child: buildCardContent(context),
     );
 

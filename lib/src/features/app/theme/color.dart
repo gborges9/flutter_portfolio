@@ -10,7 +10,10 @@ class AppColors {
   static const background = Color.fromRGBO(248, 248, 248, 1);
   static const shadow = Colors.black87;
 
-  static const black = Color.fromRGBO(62, 66, 73, 1);
+  //static const black = Colors.black;
+  static const black =
+      Color.fromRGBO(32, 36, 43, 1); //Color.fromRGBO(62, 66, 73, 1);
+  static const darkGrey = Color.fromRGBO(88, 89, 97, 1);
   static const white = Color.fromRGBO(248, 248, 248, 1);
 
   static const successGreen = Color.fromRGBO(38, 174, 96, 1);

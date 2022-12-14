@@ -8,10 +8,13 @@ class AboutMePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.topLeft,
-      child: SingleChildScrollView(
-        padding: EdgeInsets.all(AppMargins.appBorder / 2).copyWith(left: 0),
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: AppMargins.appBorder * 3,
+        vertical: AppMargins.appBorder * 2,
+      ),
+      child: Align(
+        alignment: Alignment.topLeft,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

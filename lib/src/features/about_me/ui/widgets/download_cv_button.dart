@@ -8,7 +8,7 @@ class DownloadCvButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton.icon(
+    return ElevatedButton.icon(
       onPressed: () => downloadCv(context),
       icon: const HeroIcon(HeroIcons.arrowDownTray),
       label: Text(Strings.of(context).downloadCV),

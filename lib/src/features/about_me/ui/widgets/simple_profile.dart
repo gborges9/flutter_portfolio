@@ -5,7 +5,6 @@ import 'package:flutter_portfolio/src/features/app/theme/borders.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 import 'package:flutter_portfolio/src/infrastructure/localization/strings.dart';
 import 'package:gbx_core/gbx_core.dart';
-import 'package:heroicons/heroicons.dart';
 
 class SimpleProfile extends StatelessWidget {
   const SimpleProfile({super.key});
@@ -24,11 +23,8 @@ class SimpleProfile extends StatelessWidget {
           Strings.of(context).jobTitle,
           style: Theme.of(context).textTheme.bodySmall,
         ),
-        AppMargins.doublePadding.ph,
         const SocialMediaButtons(),
-        AppMargins.padding.ph,
-        const DownloadCvButton(),
-        AppMargins.triplePadding.ph,
+        AppMargins.doublePadding.ph,
         Divider(
           endIndent: AppMargins.appBorder,
           indent: AppMargins.appBorder,
