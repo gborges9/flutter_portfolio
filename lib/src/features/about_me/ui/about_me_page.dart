@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/about_me/ui/widgets/about_section.dart';
+import 'package:flutter_portfolio/src/features/app/theme/elevation.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 import 'package:gbx_core/gbx_core.dart';
 
@@ -10,18 +11,25 @@ class AboutMePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: AppMargins.appBorder * 2,
-        vertical: AppMargins.appBorder * 2,
+        horizontal: AppMargins.appBorder / 2,
+        vertical: AppMargins.appBorder,
       ),
       child: Align(
         alignment: Alignment.topLeft,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            double.infinity.pw,
-            const AboutSection(),
-          ],
+        child: Card(
+          elevation: AppElevation.elevation1,
+          child: Padding(
+            padding: EdgeInsets.all(AppMargins.cardPadding),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                double.infinity.pw,
+                const AboutSection(),
+              ],
+            ),
+          ),
         ),
       ),
     );

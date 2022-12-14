@@ -44,27 +44,30 @@ class AboutSection extends StatelessWidget {
                     ),
               ),
               AppMargins.quadPadding.ph,
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const DownloadCvButton(),
-                  AppMargins.doublePadding.pw,
-                  TextButton.icon(
-                    onPressed: () {},
-                    icon: const HeroIcon(HeroIcons.envelope),
-                    label: Text(Strings.of(context).contactButton),
-                  ),
-                ],
+              Center(
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  children: [
+                    const DownloadCvButton(),
+                    AppMargins.doublePadding.pw,
+                    TextButton.icon(
+                      onPressed: () {},
+                      icon: const HeroIcon(HeroIcons.envelope),
+                      label: Text(Strings.of(context).contactButton),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
         ),
         AppMargins.appBorder.pw,
         Card(
-          elevation: AppElevation.elevation2,
+          elevation: AppElevation.elevation1,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppBorders.cardBorder / 2)),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(AppBorders.cardBorder),
+            borderRadius: BorderRadius.circular(AppBorders.cardBorder / 2),
             child: Image.asset(
               "assets/images/image_1.jpeg",
               fit: BoxFit.cover,
