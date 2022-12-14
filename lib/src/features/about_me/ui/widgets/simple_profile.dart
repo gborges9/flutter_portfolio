@@ -11,32 +11,17 @@ class SimpleProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppMargins.appBorder),
-      child: Column(
-        children: [
-          _images(context),
-          AppMargins.padding.ph,
-          Text(
-            Strings.of(context).name,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          Text(
-            Strings.of(context).jobTitle,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          AppMargins.padding.ph,
-          Text(
-            Strings.of(context).helloIntroText,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
-          ),
-          AppMargins.padding.ph,
-          const SocialMediaButtons(),
-          AppMargins.doublePadding.ph,
-          const Divider(height: 0),
-        ],
-      ),
+    final hPadding = EdgeInsets.symmetric(horizontal: AppMargins.appBorder);
+    return Column(
+      children: [
+        _images(context),
+        AppMargins.padding.ph,
+        profileText(context),
+        AppMargins.padding.ph,
+        const SocialMediaButtons(),
+        AppMargins.doublePadding.ph,
+        const Divider(height: 0),
+      ],
     );
   }
 
@@ -62,6 +47,32 @@ class SimpleProfile extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  Widget profileText(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.zero,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          double.infinity.pw,
+          Text(
+            Strings.of(context).name,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          Text(
+            Strings.of(context).jobTitle,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          AppMargins.padding.ph,
+          Text(
+            Strings.of(context).helloIntroText,
+            style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
     );
   }
 }
