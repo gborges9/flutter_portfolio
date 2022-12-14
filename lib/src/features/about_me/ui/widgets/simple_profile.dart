@@ -11,26 +11,32 @@ class SimpleProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        _images(context),
-        AppMargins.padding.ph,
-        Text(
-          Strings.of(context).name,
-          style: Theme.of(context).textTheme.headlineSmall,
-        ),
-        Text(
-          Strings.of(context).jobTitle,
-          style: Theme.of(context).textTheme.bodySmall,
-        ),
-        const SocialMediaButtons(),
-        AppMargins.doublePadding.ph,
-        Divider(
-          endIndent: AppMargins.appBorder,
-          indent: AppMargins.appBorder,
-          height: 0,
-        ),
-      ],
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: AppMargins.appBorder),
+      child: Column(
+        children: [
+          _images(context),
+          AppMargins.padding.ph,
+          Text(
+            Strings.of(context).name,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+          Text(
+            Strings.of(context).jobTitle,
+            style: Theme.of(context).textTheme.bodySmall,
+          ),
+          AppMargins.padding.ph,
+          Text(
+            Strings.of(context).helloIntroText,
+            style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
+          ),
+          AppMargins.padding.ph,
+          const SocialMediaButtons(),
+          AppMargins.doublePadding.ph,
+          const Divider(height: 0),
+        ],
+      ),
     );
   }
 
