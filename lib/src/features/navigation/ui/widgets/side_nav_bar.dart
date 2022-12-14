@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/features/app/theme/borders.dart';
 import 'package:flutter_portfolio/src/features/app/theme/elevation.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 
@@ -20,6 +21,8 @@ class SideNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppBorders.navBorder)),
       elevation: AppElevation.elevation3,
       margin: EdgeInsets.only(
         top: AppMargins.appBorder,

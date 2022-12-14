@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/about_me/ui/widgets/download_cv_button.dart';
 import 'package:flutter_portfolio/src/features/about_me/ui/widgets/social_media_buttons.dart';
 import 'package:flutter_portfolio/src/features/app/theme/borders.dart';
+import 'package:flutter_portfolio/src/features/app/theme/color.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 import 'package:flutter_portfolio/src/infrastructure/localization/strings.dart';
 import 'package:gbx_core/gbx_core.dart';
@@ -16,7 +17,10 @@ class SimpleProfile extends StatelessWidget {
       children: [
         _images(context),
         AppMargins.padding.ph,
-        profileText(context),
+        Padding(
+          padding: hPadding,
+          child: profileText(context),
+        ),
         AppMargins.padding.ph,
         const SocialMediaButtons(),
         AppMargins.doublePadding.ph,
@@ -51,28 +55,28 @@ class SimpleProfile extends StatelessWidget {
   }
 
   Widget profileText(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.zero,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          double.infinity.pw,
-          Text(
-            Strings.of(context).name,
-            style: Theme.of(context).textTheme.headlineSmall,
-          ),
-          Text(
-            Strings.of(context).jobTitle,
-            style: Theme.of(context).textTheme.bodySmall,
-          ),
-          AppMargins.padding.ph,
-          Text(
-            Strings.of(context).helloIntroText,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
-          ),
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        double.infinity.pw,
+        Text(
+          Strings.of(context).name,
+          style: Theme.of(context).textTheme.headlineSmall,
+        ),
+        Text(
+          Strings.of(context).jobTitle,
+          style: Theme.of(context).textTheme.bodySmall,
+        ),
+        AppMargins.padding.ph,
+        Text(
+          Strings.of(context).helloIntroText,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium!
+              .copyWith(color: AppColors.darkGrey),
+          textAlign: TextAlign.center,
+        ),
+      ],
     );
   }
 }

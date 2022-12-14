@@ -10,7 +10,7 @@ class AboutMePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
-        horizontal: AppMargins.appBorder * 3,
+        horizontal: AppMargins.appBorder * 2,
         vertical: AppMargins.appBorder * 2,
       ),
       child: Align(

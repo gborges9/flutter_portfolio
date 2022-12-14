@@ -14,7 +14,7 @@ ThemeData get appTheme {
     colorScheme: AppColors.scheme,
     cardTheme: CardTheme(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(AppBorders.navBorder),
+        borderRadius: BorderRadius.circular(AppBorders.cardBorder),
       ),
       margin: AppMargins.card,
     ),
