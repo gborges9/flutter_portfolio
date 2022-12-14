@@ -8,6 +8,7 @@ class AppColors {
   static const onSurface = black;
 
   static const background = Color.fromRGBO(248, 248, 248, 1);
+  static const darkerBackground = Color.fromRGBO(242, 242, 242, 1);
   static const shadow = Colors.black87;
 
   //static const black = Colors.black;

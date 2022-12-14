@@ -1,6 +1,9 @@
 import 'package:adaptive_breakpoints/adaptive_breakpoints.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/features/app/theme/borders.dart';
+import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
+import 'package:flutter_portfolio/src/features/app/ui/widgets/responsive_insets.dart';
 import 'package:flutter_portfolio/src/infrastructure/navigation/nav_route_data.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/bottom_nav_bar.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/side_nav_bar.dart';
@@ -26,34 +29,42 @@ class ResponsiveNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final useBottomNav = _useBottomNavBar(context);
-    return Scaffold(
-      bottomNavigationBar: useBottomNav
-          ? BottomNavBar(
-              items: getNavigationBarItems(context),
-              selectedIndex: selectedIndex,
-              onTabSelected: (index) =>
-                  onRouteSelected?.call(index, routes[index]),
-            )
-          : null,
-      body: useBottomNav
-          ? body
-          : Row(
-              children: [
-                SizedBox(
-                  height: double.infinity,
-                  width: 350,
-                  child: SideNavBar(
-                    header: sidebarHeader,
-                    trailing: sidebarTrailing,
-                    selectedIndex: selectedIndex,
-                    onDestinationSelected: (index) =>
-                        onRouteSelected?.call(index, routes[index]),
-                    destinations: getDestinations(context),
+    return ResponsiveInsets(
+      value: EdgeInsets.only(
+        left: useBottomNav ? 0 : 350 - AppMargins.appBorder,
+      ),
+      child: Scaffold(
+        bottomNavigationBar: useBottomNav
+            ? BottomNavBar(
+                items: getNavigationBarItems(context),
+                selectedIndex: selectedIndex,
+                onTabSelected: (index) =>
+                    onRouteSelected?.call(index, routes[index]),
+              )
+            : null,
+        body: useBottomNav
+            ? body
+            : Stack(
+                fit: StackFit.expand,
+                children: [
+                  if (body != null) body!,
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: SizedBox(
+                      width: 350,
+                      child: SideNavBar(
+                        header: sidebarHeader,
+                        trailing: sidebarTrailing,
+                        selectedIndex: selectedIndex,
+                        onDestinationSelected: (index) =>
+                            onRouteSelected?.call(index, routes[index]),
+                        destinations: getDestinations(context),
+                      ),
+                    ),
                   ),
-                ),
-                if (body != null) Expanded(child: body!),
-              ],
-            ),
+                ],
+              ),
+      ),
     );
   }
 

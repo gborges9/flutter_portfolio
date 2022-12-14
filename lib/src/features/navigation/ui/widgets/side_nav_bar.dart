@@ -28,7 +28,7 @@ class SideNavBar extends StatelessWidget {
         top: AppMargins.appBorder,
         bottom: AppMargins.appBorder,
         left: AppMargins.appBorder,
-        right: AppMargins.appBorder / 2,
+        right: AppMargins.appBorder,
       ),
       child: Column(
         children: [
