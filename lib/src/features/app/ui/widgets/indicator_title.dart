@@ -17,20 +17,17 @@ class IndicatorTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final style = Theme.of(context).textTheme.headlineMedium!;
     return Row(
       children: [
         Container(
           width: AppMargins.padding,
-          height: indicatorHeight ??
-              Theme.of(context).textTheme.headlineMedium!.fontSize,
+          height: indicatorHeight ?? (style.height! * style.fontSize!),
           color: indicatorColor ?? AppColors.primary,
         ),
         AppMargins.doublePadding.pw,
         DefaultTextStyle(
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium!
-              .copyWith(color: AppColors.black),
+          style: style.copyWith(color: AppColors.black),
           child: Expanded(child: title),
         ),
       ],

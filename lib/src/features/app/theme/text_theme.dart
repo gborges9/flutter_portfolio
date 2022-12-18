@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-final _montserratTheme = GoogleFonts.montserratTextTheme();
+final _montserratTheme = GoogleFonts.robotoFlexTextTheme();
 
-final textTheme = GoogleFonts.robotoCondensedTextTheme(
+final textTheme = GoogleFonts.robotoSlabTextTheme(
   TextTheme(
     // Display
     displayLarge: const TextStyle(
