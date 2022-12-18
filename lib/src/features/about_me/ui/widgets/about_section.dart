@@ -17,36 +17,29 @@ class AboutSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final windowType = getWindowType(context);
-    bool isSmallScreen = windowType < AdaptiveWindowType.medium;
-    final padding = isSmallScreen
-        ? EdgeInsets.all(AppMargins.appBorder)
-        : EdgeInsets.all(AppMargins.sectionPadding);
+    bool isSmallScreen = getWindowType(context) < AdaptiveWindowType.medium;
     return ResponsiveSection(
       backgroundColor: AppColors.darkerBackground,
-      child: Padding(
-        padding: padding,
-        child: Column(
-          children: [
-            if (isSmallScreen) profileImage(context),
-            if (isSmallScreen) AppMargins.doublePadding.ph,
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(
-                  child: introItems(context, isSmallScreen),
-                ),
-                if (!isSmallScreen) AppMargins.appBorder.pw,
-                if (!isSmallScreen)
-                  SizedBox(
-                    height: 240,
-                    width: 240,
-                    child: trailingImage(context),
-                  )
-              ],
-            ),
-          ],
-        ),
+      child: Column(
+        children: [
+          if (isSmallScreen) profileImage(context),
+          if (isSmallScreen) AppMargins.doublePadding.ph,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: introItems(context, isSmallScreen),
+              ),
+              if (!isSmallScreen) AppMargins.appBorder.pw,
+              if (!isSmallScreen)
+                SizedBox(
+                  height: 240,
+                  width: 240,
+                  child: trailingImage(context),
+                )
+            ],
+          ),
+        ],
       ),
     );
   }
