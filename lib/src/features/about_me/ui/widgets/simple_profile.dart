@@ -22,9 +22,17 @@ class SimpleProfile extends StatelessWidget {
           child: profileText(context),
         ),
         AppMargins.padding.ph,
-        const SocialMediaButtons(),
-        AppMargins.doublePadding.ph,
-        const Divider(height: 0),
+        Padding(
+          padding: EdgeInsets.only(
+            top: AppMargins.padding,
+            bottom: AppMargins.doublePadding,
+          ),
+          child: const SocialMediaButtons(),
+        ),
+        Padding(
+          padding: hPadding,
+          child: const Divider(height: 0),
+        ),
       ],
     );
   }
