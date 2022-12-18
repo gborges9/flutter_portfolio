@@ -24,20 +24,22 @@ class AboutSection extends StatelessWidget {
         children: [
           if (isSmallScreen) profileImage(context),
           if (isSmallScreen) AppMargins.doublePadding.ph,
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: introItems(context, isSmallScreen),
-              ),
-              if (!isSmallScreen) AppMargins.appBorder.pw,
-              if (!isSmallScreen)
-                SizedBox(
-                  height: 240,
-                  width: 240,
-                  child: trailingImage(context),
-                )
-            ],
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Expanded(
+                  child: introItems(context, isSmallScreen),
+                ),
+                if (!isSmallScreen) AppMargins.appBorder.pw,
+                if (!isSmallScreen)
+                  SizedBox(
+                    height: 300,
+                    width: 300,
+                    child: trailingImage(context),
+                  )
+              ],
+            ),
           ),
         ],
       ),
@@ -75,12 +77,13 @@ class AboutSection extends StatelessWidget {
           textAlign: textAlign,
         ),
         AppMargins.quadPadding.ph,
+        const Spacer(),
         Center(
           child: Wrap(
             alignment: WrapAlignment.center,
+            spacing: AppMargins.quadPadding,
             children: [
               const DownloadCvButton(),
-              AppMargins.doublePadding.pw,
               TextButton.icon(
                 onPressed: () {},
                 icon: const HeroIcon(HeroIcons.envelope),
