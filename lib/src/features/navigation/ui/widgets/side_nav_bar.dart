@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/app/theme/borders.dart';
+import 'package:flutter_portfolio/src/features/app/theme/color.dart';
 import 'package:flutter_portfolio/src/features/app/theme/elevation.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 
@@ -35,11 +36,14 @@ class SideNavBar extends StatelessWidget {
           if (header != null) header!,
           Expanded(
             child: NavigationRail(
+              useIndicator: true,
+              indicatorColor: AppColors.primary,
               backgroundColor: Colors.transparent,
               selectedIndex: selectedIndex,
               extended: true,
               destinations: destinations,
               onDestinationSelected: onDestinationSelected,
+              selectedIconTheme: const IconThemeData(color: Colors.white),
             ),
           ),
           if (trailing != null) trailing!,
