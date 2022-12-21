@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/src/features/app/theme/color.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
 import 'package:flutter_portfolio/src/features/app/ui/widgets/indicator_title.dart';
 import 'package:flutter_portfolio/src/features/app/ui/widgets/responsive_section.dart';
@@ -18,9 +17,8 @@ class WhatIDoSection extends StatelessWidget {
           const SizedBox(width: double.infinity),
           IndicatorTitle(
             title: Text(Strings.of(context).whatIDoTitle),
-            indicatorHeight: 39,
           ),
-          100.0.ph,
+          AppMargins.doublePadding.ph,
         ],
       ),
     );
