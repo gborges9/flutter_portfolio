@@ -16,7 +16,7 @@ class ValueRange<T extends num> {
     if (value > max) {
       return 1;
     }
-    if (value < min) {
+    if (value <= min) {
       return -1;
     }
     return 0;

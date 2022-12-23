@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_portfolio/src/infrastructure/common/value_range.dart';
 import 'package:gbx_core/gbx_core.dart';
 
 class CustomPageView extends StatefulWidget {
@@ -89,6 +90,8 @@ class _CustomPageViewState extends State<CustomPageView> {
 class CustomPageController extends ScrollController implements PageController {
   late List<double> heights;
   double _page = 0;
+
+  List<ValueRange<double>> ranges = [];
   // double prevPageThreshold = 0;
   // double nextPageThreshold = 0;
 
@@ -127,28 +130,49 @@ class CustomPageController extends ScrollController implements PageController {
 
   void setPageHeights(List<double> heights) {
     this.heights = heights;
+    ranges = generateRanges();
   }
 
   double getScrollHeightToPage(int page) {
+    if (page == 0) return 0;
     return heights
         .sublist(0, page.floor())
         .reduce((value, element) => value + element);
   }
 
   void _onScrollEvent() {
-    double pixelScrolled = position.pixels + position.viewportDimension * 0.4;
-    double page = 0;
-    for (int i = 0; i < heights.length; i++) {
-      double height = heights[i];
-      if (pixelScrolled < height) {
-        page = i.toDouble();
-        break;
-      }
-      pixelScrolled -= height;
+    double pixelScrolled = position.pixels;
+    if (pixelScrolled <= 0) {
+      _page = 0;
+      return;
     }
 
-    if (page != this.page) {
-      _page = page;
+    if (ranges[page.toInt()].fitsInRange(pixelScrolled)) {
+      return;
     }
+    while (!ranges[_page.toInt()].fitsInRange(pixelScrolled)) {
+      _page += ranges[_page.toInt()].compareToRange(pixelScrolled);
+    }
+  }
+
+  List<ValueRange<double>> generateRanges() {
+    if (heights.isEmpty) {
+      return [];
+    }
+
+    double modifier = -position.viewportDimension * 0.4;
+
+    List<ValueRange<double>> ranges = [
+      ValueRange(0, heights[0] + modifier),
+    ];
+
+    for (int i = 1; i < heights.length; i++) {
+      double min = ranges.last.max;
+      double max = min + heights[i];
+
+      ranges.add(ValueRange(min, max));
+    }
+
+    return ranges;
   }
 }
