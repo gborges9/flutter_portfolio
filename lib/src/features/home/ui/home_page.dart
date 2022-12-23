@@ -4,7 +4,7 @@ import 'package:flutter_portfolio/src/features/about_me/ui/widgets/simple_profil
 import 'package:flutter_portfolio/src/features/home/tabs/home_tabs_data.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/responsive_navigation.dart';
 import 'package:flutter_portfolio/src/infrastructure/navigation/nav_route_data.dart';
-import 'package:flutter_portfolio/src/infrastructure/navigation/transition.dart';
+import 'package:gbx_core/gbx_core.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,6 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
+  final PageController pageController = PageController();
 
   @override
   void initState() {
@@ -33,19 +34,20 @@ class _HomePageState extends State<HomePage> {
       routes: homeTabsData,
       onRouteSelected: _onRouteSelected,
       sidebarHeader: const SimpleProfile(),
-      body: PageTransitionSwitcher(
-        duration: const Duration(milliseconds: 300),
-        transitionBuilder: (child, primaryAnimation, secondaryAnimation) =>
-            fadeThroughTransition(
-                context, primaryAnimation, secondaryAnimation, child),
-        child: homeTabsData[currentPage].builder!(context),
+      body: PageView.builder(
+        controller: pageController,
+        itemBuilder: (context, index) =>
+            homeTabsData[index].builder?.call(context) ?? Container(),
+        itemCount: homeTabsData.length,
+        scrollDirection: Axis.vertical,
+        pageSnapping: false,
+        onPageChanged: (value) => setState(() => currentPage = value),
       ),
     );
   }
 
   void _onRouteSelected(int index, NavRouteData data) {
-    setState(() {
-      currentPage = index;
-    });
+    pageController.animateToPage(index,
+        duration: const Duration(milliseconds: 300), curve: Curves.easeInOut);
   }
 }
