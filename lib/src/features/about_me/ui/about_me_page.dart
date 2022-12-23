@@ -6,8 +6,7 @@ class AboutMePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      primary: false,
+    return Column(
       children: const [
         AboutSection(),
       ],

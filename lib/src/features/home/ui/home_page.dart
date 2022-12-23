@@ -1,10 +1,9 @@
-import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/about_me/ui/widgets/simple_profile.dart';
 import 'package:flutter_portfolio/src/features/home/tabs/home_tabs_data.dart';
+import 'package:flutter_portfolio/src/features/home/ui/widgets/custom_page_view.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/responsive_navigation.dart';
 import 'package:flutter_portfolio/src/infrastructure/navigation/nav_route_data.dart';
-import 'package:gbx_core/gbx_core.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -15,7 +14,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentPage = 0;
-  final PageController pageController = PageController();
+  final CustomPageController pageController = CustomPageController();
 
   @override
   void initState() {
@@ -34,13 +33,14 @@ class _HomePageState extends State<HomePage> {
       routes: homeTabsData,
       onRouteSelected: _onRouteSelected,
       sidebarHeader: const SimpleProfile(),
-      body: PageView.builder(
+      body: CustomPageView(
         controller: pageController,
-        itemBuilder: (context, index) =>
-            homeTabsData[index].builder?.call(context) ?? Container(),
-        itemCount: homeTabsData.length,
-        scrollDirection: Axis.vertical,
-        pageSnapping: false,
+        children: homeTabsData.map((e) => e.builder!.call(context)).toList(),
+        // itemBuilder: (context, index) =>
+        //     homeTabsData[index].builder?.call(context) ?? Container(),
+        // itemCount: homeTabsData.length,
+        // scrollDirection: Axis.vertical,
+        // pageSnapping: false,
         onPageChanged: (value) => setState(() => currentPage = value),
       ),
     );
