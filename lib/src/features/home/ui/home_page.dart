@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/about_me/ui/widgets/simple_profile.dart';
 import 'package:flutter_portfolio/src/features/home/tabs/home_tabs_data.dart';
-import 'package:flutter_portfolio/src/features/home/ui/widgets/custom_page_view.dart';
+import 'package:flutter_portfolio/src/features/app/ui/widgets/custom_page_view.dart';
 import 'package:flutter_portfolio/src/features/navigation/ui/widgets/responsive_navigation.dart';
 import 'package:flutter_portfolio/src/infrastructure/navigation/nav_route_data.dart';
 
