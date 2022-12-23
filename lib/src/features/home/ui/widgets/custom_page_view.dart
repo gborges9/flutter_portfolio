@@ -89,11 +89,10 @@ class _CustomPageViewState extends State<CustomPageView> {
 
 class CustomPageController extends ScrollController implements PageController {
   late List<double> heights;
+  double maxHeight = 0;
   double _page = 0;
 
   List<ValueRange<double>> ranges = [];
-  // double prevPageThreshold = 0;
-  // double nextPageThreshold = 0;
 
   CustomPageController() {
     addListener(_onScrollEvent);
@@ -131,13 +130,20 @@ class CustomPageController extends ScrollController implements PageController {
   void setPageHeights(List<double> heights) {
     this.heights = heights;
     ranges = generateRanges();
+    maxHeight = heights.reduce((value, element) => value + element);
   }
 
   double getScrollHeightToPage(int page) {
     if (page == 0) return 0;
-    return heights
+    double h = heights
         .sublist(0, page.floor())
         .reduce((value, element) => value + element);
+
+    // Avoid overscrolling
+    if (h + position.viewportDimension > maxHeight) {
+      return maxHeight - position.viewportDimension;
+    }
+    return h;
   }
 
   void _onScrollEvent() {
