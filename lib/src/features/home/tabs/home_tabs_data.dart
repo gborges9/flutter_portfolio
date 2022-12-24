@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/features/about_me/ui/about_me_page.dart';
-import 'package:flutter_portfolio/src/features/home/ui/home_page.dart';
+import 'package:flutter_portfolio/src/features/skills/ui/skills_page.dart';
 import 'package:flutter_portfolio/src/infrastructure/navigation/nav_route_data.dart';
 import 'package:flutter_portfolio/src/infrastructure/localization/strings.dart';
 import 'package:heroicons/heroicons.dart';
@@ -22,8 +22,7 @@ final homeTabsData = [
       HeroIcons.bookOpen,
       style: HeroIconStyle.solid,
     ),
-    builder: (context) =>
-        Container(width: double.infinity, color: Colors.red, height: 500),
+    builder: (context) => const SkillsPage(),
   ),
   NavRouteData.builder(
     labelBuilder: (context) => Strings.of(context).tabExperience,
