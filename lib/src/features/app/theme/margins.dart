@@ -9,7 +9,7 @@ class AppMargins {
   static double get triplePadding => 12.0;
   static double get quadPadding => 16.0;
 
-  static double get cardPadding => 24.0;
+  static double get cardPadding => 4.0;
   static double get sectionPadding => 32.0;
 
   static double get appBorder => 16.0;
