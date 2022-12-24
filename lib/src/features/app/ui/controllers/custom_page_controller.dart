@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_portfolio/src/infrastructure/common/value_range.dart';
+import 'package:gbx_core/gbx_core.dart';
 
 class CustomPageController extends ScrollController implements PageController {
   late List<double> heights;
@@ -65,10 +66,6 @@ class CustomPageController extends ScrollController implements PageController {
 
   void _calculateCurrentPage() {
     double pixelScrolled = position.pixels;
-    if (pixelScrolled <= 0) {
-      _page = 0;
-      return;
-    }
 
     if (ranges[page.toInt()].fitsInRange(pixelScrolled)) {
       return;
@@ -87,15 +84,22 @@ class CustomPageController extends ScrollController implements PageController {
 
     double modifier = -position.viewportDimension * 0.4;
 
+    // Create first range with a min of -inf
     List<ValueRange<double>> ranges = [
-      ValueRange(0, heights[0] + modifier),
+      ValueRange(-double.infinity, heights[0] + modifier),
     ];
 
-    for (int i = 1; i < heights.length; i++) {
+    // Create ranges until before the last one
+    for (int i = 1; i < heights.length - 1; i++) {
       double min = ranges.last.max;
       double max = min + heights[i];
 
       ranges.add(ValueRange(min, max));
+    }
+
+    // Create the last range with max of inf
+    if (heights.length >= 2) {
+      ranges.add(ValueRange(ranges.last.max, double.infinity));
     }
 
     return ranges;
