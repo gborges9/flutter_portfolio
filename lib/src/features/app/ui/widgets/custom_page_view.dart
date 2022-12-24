@@ -38,6 +38,7 @@ class _CustomPageViewState extends State<CustomPageView> {
     );
     controller = widget.controller ?? CustomPageController();
     heights = List.filled(children.length, 0);
+    controller.addPageListener(onPageChanged);
   }
 
   @override
@@ -55,16 +56,10 @@ class _CustomPageViewState extends State<CustomPageView> {
       widget.controller?.setPageHeights(heights);
     });
 
-    return NotificationListener<ScrollNotification>(
-      onNotification: (notification) {
-        onScroll(notification);
-        return false;
-      },
-      child: SingleChildScrollView(
-        controller: widget.controller,
-        child: Column(
-          children: children,
-        ),
+    return SingleChildScrollView(
+      controller: widget.controller,
+      child: Column(
+        children: children,
       ),
     );
   }
@@ -75,11 +70,7 @@ class _CustomPageViewState extends State<CustomPageView> {
         .toList();
   }
 
-  void onScroll(ScrollNotification notification) {
-    int controllerPage = controller.page.toInt();
-    if (controllerPage != currentPage) {
-      currentPage = controllerPage;
-      widget.onPageChanged?.call(controllerPage.toInt());
-    }
+  void onPageChanged(double page) {
+    widget.onPageChanged?.call(page.toInt());
   }
 }
