@@ -32,6 +32,9 @@
   "instagram": "Instagram",
 
   "whatIDoTitle": "What I do",
-  "relatedSkills": "Related Skills:"
+  "relatedSkills": "Related Skills:",
+  "whatIDoAndroidPlat": "Android Platform Development",
+  "whatIDoAndroidPlatBody": "• Android Automotive OS\n• System Services Development (Binder/AIDL)\n• System Application Development for Android Automotive"
+
 }
   
