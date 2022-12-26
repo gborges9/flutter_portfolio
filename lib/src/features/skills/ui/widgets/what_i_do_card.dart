@@ -44,6 +44,7 @@ class WhatIDoCard extends StatelessWidget {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: data.skills
                     .map<Widget>((e) => _SkillItem(skill: e))
                     .toList()
@@ -69,15 +70,11 @@ class _SkillItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget child = Tooltip(
-      preferBelow: true,
-      message: showTitle ? null : skill.name,
-      child: Image.asset(
-        skill.imagePath,
-        width: imageSize,
-        height: imageSize,
-        fit: BoxFit.fitHeight,
-      ),
+    Widget child = Image.asset(
+      skill.imagePath,
+      width: imageSize,
+      height: imageSize,
+      fit: BoxFit.fitHeight,
     );
     if (showTitle) {
       child = Column(
@@ -91,6 +88,12 @@ class _SkillItem extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
         ],
+      );
+    } else {
+      child = Tooltip(
+        preferBelow: true,
+        message: skill.name,
+        child: child,
       );
     }
     return child;

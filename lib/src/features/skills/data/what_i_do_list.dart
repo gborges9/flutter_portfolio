@@ -10,8 +10,18 @@ final whatIdoItems = <WhatIDo>[
     skills: [
       Skills.androidDev,
       Skills.java,
-      Skills.kotlin,
       Skills.python,
+      Skills.kotlin,
+    ],
+  ),
+  WhatIDo(
+    titleBuilder: (context) => Strings.of(context).whatIDoAndroidApp,
+    bodyBuilder: (context) => Strings.of(context).whatIDoAndroidAppBody,
+    headerImagePath: "assets/images/android_app_dev.png",
+    skills: [
+      Skills.androidDev,
+      Skills.kotlin,
+      Skills.java,
     ],
   ),
 ];

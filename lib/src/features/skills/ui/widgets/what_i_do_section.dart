@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_portfolio/src/features/app/theme/elevation.dart';
 import 'package:flutter_portfolio/src/features/app/theme/margins.dart';
-import 'package:flutter_portfolio/src/features/app/ui/widgets/content_card.dart';
 import 'package:flutter_portfolio/src/features/app/ui/widgets/indicator_title.dart';
 import 'package:flutter_portfolio/src/features/app/ui/widgets/responsive_section.dart';
 import 'package:flutter_portfolio/src/features/skills/data/what_i_do_list.dart';
@@ -27,21 +25,25 @@ class WhatIDoSection extends StatelessWidget {
             ),
           ),
           AppMargins.quadPadding.ph,
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Expanded(child: buildCard(context)),
-              const Spacer(),
-            ],
+          IntrinsicHeight(
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: WhatIDoCard(
+                    data: whatIdoItems[0],
+                  ),
+                ),
+                Expanded(
+                  child: WhatIDoCard(
+                    data: whatIdoItems[1],
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
-    );
-  }
-
-  Widget buildCard(BuildContext context) {
-    return WhatIDoCard(
-      data: whatIdoItems.first,
     );
   }
 }

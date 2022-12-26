@@ -34,7 +34,9 @@
   "whatIDoTitle": "What I do",
   "relatedSkills": "Related Skills:",
   "whatIDoAndroidPlat": "Android Platform Development",
-  "whatIDoAndroidPlatBody": "• Android Automotive OS\n• System Services Development (Binder/AIDL)\n• System Application Development for Android Automotive"
+  "whatIDoAndroidPlatBody": "• Android Automotive OS\n• System Services Development (Binder/AIDL)\n• System Application Development for Android Automotive",
+  "whatIDoAndroidApp": "Android App Development",
+  "whatIDoAndroidAppBody": "• Android Auto Integration\n• Android Jetpack Libraries\n• Kotlin coroutines, live data and flows\n• Modern Architectures (MVVM + Use cases)"
 
 }
   

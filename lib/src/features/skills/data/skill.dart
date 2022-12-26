@@ -19,5 +19,5 @@ class Skills {
   static const Skill androidDev = Skill(
       name: "Android Development", imagePath: "assets/images/android_dev.png");
   static const Skill flutterDev = Skill(
-      name: "Android Development", imagePath: "assets/images/flutter_logo.png");
+      name: "Flutter Development", imagePath: "assets/images/flutter_logo.png");
 }
